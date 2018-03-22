@@ -41,10 +41,12 @@ public class FrequencyListAdapter extends RecyclerView.Adapter<ItemHolder> {
     @Override
     public void onBindViewHolder(@NonNull ItemHolder holder, int position) {
         String[] extensionContent = mFileList.get(position).split(" ");
-        holder.mTextView.setText(String.format(Locale.US, "%d. extension: %s frequency: %s"
+        holder.mTitle.setText(String.format(Locale.US, "%d. extension: %s frequency: %s"
                 , position + 1
-                , mFileList.get(position)
+                , extensionContent[0]
                 , extensionContent[1]));
+        holder.mTitle.setText(String.format(Locale.US, "%d. extension: %s", position + 1, extensionContent[0]));
+        holder.mValue.setText(String.format(Locale.US, "frequency: %s",  extensionContent[1]));
     }
 
     @Override

@@ -44,10 +44,8 @@ public class BiggestListAdapter extends RecyclerView.Adapter<ItemHolder> {
     @Override
     public void onBindViewHolder(@NonNull ItemHolder holder, int position) {
         ScanFile file = mFileList.get(position);
-        holder.mTextView.setText(String.format(Locale.US, "%d. name: %s size: %s"
-                , position + 1
-                , file.getName()
-                , FileSizeUtil.getReadableFileSize(file.getSize())));
+        holder.mTitle.setText(String.format(Locale.US, "%d. name: %s", position + 1, file.getName()));
+        holder.mValue.setText(String.format(Locale.US, "size: %s", FileSizeUtil.getReadableFileSize(file.getSize())));
     }
 
     @Override
@@ -55,7 +53,7 @@ public class BiggestListAdapter extends RecyclerView.Adapter<ItemHolder> {
         return mFileList == null ? 0 : mFileList.size();
     }
 
-    public void setFileList(List<ScanFile> fileList) {
+    void setFileList(List<ScanFile> fileList) {
         mFileList = fileList;
     }
 }

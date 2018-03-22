@@ -49,7 +49,7 @@ class SortUtil {
             }
         });
         for (ScanFile scanFile : scanResults) {
-            String extension = FileExtensionUtil.getExtension(scanFile.getName());
+            String extension = scanFile.getExtension();
             if (map.containsKey(extension)) {
                 int frequency = map.get(extension) + 1;
                 map.put(extension, frequency);

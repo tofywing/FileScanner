@@ -15,7 +15,7 @@ class AverageFileHolder extends RecyclerView.ViewHolder {
     TextView mTitle;
     TextView mValue;
 
-    public AverageFileHolder(View itemView) {
+    AverageFileHolder(View itemView) {
         super(itemView);
         mTitle = itemView.findViewById(R.id.report_quote_title);
         mValue = itemView.findViewById(R.id.report_quote_value);

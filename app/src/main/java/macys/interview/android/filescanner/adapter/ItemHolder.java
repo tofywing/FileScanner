@@ -12,10 +12,12 @@ import macys.interview.android.filescanner.R;
 
 class ItemHolder extends RecyclerView.ViewHolder {
 
-    TextView mTextView;
+    TextView mTitle;
+    TextView mValue;
 
-    public ItemHolder(View itemView) {
+    ItemHolder(View itemView) {
         super(itemView);
-        mTextView = itemView.findViewById(R.id.list_item_content);
+        mTitle = itemView.findViewById(R.id.list_item_title);
+        mValue = itemView.findViewById(R.id.list_item_value);
     }
 }

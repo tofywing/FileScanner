@@ -37,7 +37,9 @@ public class FrequentExtensionsUtil {
         int size = DESIRED_SIZE;
         for (Map.Entry<String, Integer> entry : frequencyMap.entrySet()) {
             String extension = entry.getKey();
-            Log.d("12", extension);
+            if(extension.isEmpty()) {
+                extension = "NotApplicable";
+            }
             extension += (" " + entry.getValue());
             frequencyList.add(extension);
             size--;

@@ -16,7 +16,7 @@ class BiggestFilesHolder extends RecyclerView.ViewHolder {
     TextView mTitle;
     RecyclerView mList;
 
-    public BiggestFilesHolder(View itemView) {
+    BiggestFilesHolder(View itemView) {
         super(itemView);
         mTitle = itemView.findViewById(R.id.report_list_title);
         mList = itemView.findViewById(R.id.report_list);
