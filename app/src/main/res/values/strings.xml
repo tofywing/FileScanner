@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FileScanner</string>
+    <string name="action_scan">Scan</string>
+    <string name="action_stop">Stop</string>
+    <string name="average_title">Average file size: </string>
+    <string name="biggest_file_title">Name and sizes of 10 biggest files:</string>
+    <string name="frequent_extension_title">5 most frequent file extensions: </string>
+</resources>
