@@ -30,7 +30,6 @@ public class ScanService extends Service implements ScanCallBack {
     public static final String TOTAL_DATA = "scanData";
     public static final String AVERAGE_SIZE = "averageSize";
     public static final String TOP_BIGGEST = "topBiggest";
-    public static final String MOST_FREQUENCY = "mostFrequency";
 
     ScanTask mScanTask;
 

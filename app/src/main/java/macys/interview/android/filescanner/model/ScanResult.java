@@ -16,7 +16,7 @@ public class ScanResult {
 
     }
 
-    public static ScanResult builder(){
+    public static ScanResult builder() {
         return new ScanResult();
     }
 
@@ -30,5 +30,9 @@ public class ScanResult {
 
     public void setScanFileList(List<ScanFile> scanFileList) {
         mScanFileList = scanFileList;
+    }
+
+    public void clear() {
+        mScanFileList.clear();
     }
 }

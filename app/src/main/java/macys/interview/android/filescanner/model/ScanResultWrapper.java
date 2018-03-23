@@ -58,4 +58,11 @@ public class ScanResultWrapper {
     public long getAverageFileSize() {
         return averageFileSize;
     }
+
+    public void clear() {
+        getScanResult().clear();
+        setAverageFileSize(0);
+        getBiggestFileList().clear();
+        getFrequentFileList().clear();
+    }
 }

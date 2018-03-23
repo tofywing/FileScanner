@@ -5,4 +5,5 @@
     <string name="average_title">Average file size: </string>
     <string name="biggest_file_title">Name and sizes of 10 biggest files:</string>
     <string name="frequent_extension_title">5 most frequent file extensions: </string>
+    <string name="toast_no_found">No files found</string>
 </resources>

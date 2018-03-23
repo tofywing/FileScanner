@@ -56,17 +56,21 @@ public class MainActivity extends AppCompatActivity implements ScanContract.View
                 String action = intent.getAction();
                 if (action != null && intent.getAction().equals(ScanService.ACTION)) {
                     MenuItem menuItem = mMenu.findItem(R.id.action_scan);
-                    updateItemTitle(menuItem, false);
-                    long size = intent.getLongExtra(ScanService.AVERAGE_SIZE, 0);
-                    List<ScanFile> biggest = intent.getParcelableArrayListExtra(ScanService.TOP_BIGGEST);
                     List<ScanFile> totalFiles = intent.getParcelableArrayListExtra(ScanService.TOTAL_DATA);
-                    AverageFileSizeUtil.builder().setAverage(size);
-                    ScanResultWrapper.getInstance().setBiggestFileList(new ArrayList<>(biggest));
-                    ScanResultWrapper.getInstance().setAverageFileSize(size);
-                    ScanResult scanResult = ScanResult.builder();
-                    scanResult.setScanFileList(totalFiles);
-                    ScanResultWrapper.getInstance().setScanResult(scanResult);
-                    FrequentExtensionsUtil.builder().updateExtensionsList();
+                    if (totalFiles.size() == 0) {
+                        Toast.makeText(getApplicationContext(), R.string.toast_no_found, Toast.LENGTH_LONG).show();
+                    } else {
+                        long size = intent.getLongExtra(ScanService.AVERAGE_SIZE, 0);
+                        List<ScanFile> biggest = intent.getParcelableArrayListExtra(ScanService.TOP_BIGGEST);
+                        AverageFileSizeUtil.builder().setAverage(size);
+                        ScanResultWrapper.getInstance().setBiggestFileList(new ArrayList<>(biggest));
+                        ScanResultWrapper.getInstance().setAverageFileSize(size);
+                        ScanResult scanResult = ScanResult.builder();
+                        scanResult.setScanFileList(totalFiles);
+                        ScanResultWrapper.getInstance().setScanResult(scanResult);
+                        FrequentExtensionsUtil.builder().updateExtensionsList();
+                    }
+                    updateItemTitle(menuItem, false);
                     mScanPresenter.stopScan();
                 }
             }
@@ -118,6 +122,8 @@ public class MainActivity extends AppCompatActivity implements ScanContract.View
     @Override
     public void scanStart() {
         mScanProgress.setVisibility(View.VISIBLE);
+        ScanResultWrapper.getInstance().clear();
+        createFragment();
     }
 
     @Override

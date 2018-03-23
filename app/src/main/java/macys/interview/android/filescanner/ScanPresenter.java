@@ -13,7 +13,7 @@ public class ScanPresenter implements ScanContract.Action {
     private Intent mScanIntent;
     private Context mContext;
 
-    public ScanPresenter(Context context, ScanContract.View view) {
+    ScanPresenter(Context context, ScanContract.View view) {
         mContext = context;
         mView = view;
     }
