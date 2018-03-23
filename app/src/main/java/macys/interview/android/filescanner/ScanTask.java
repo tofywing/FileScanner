@@ -68,7 +68,7 @@ class ScanTask {
         mDisposable = Observable.fromCallable(new Callable<List<ScanFile>>() {
             @Override
             public List<ScanFile> call() throws Exception {
-                File root = new File(Environment.getRootDirectory().getAbsolutePath());
+                File root = new File(Environment.getExternalStorageDirectory().getAbsolutePath());
                 return getFile(root);
             }
         })
