@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import macys.interview.android.filescanner.R;
 import macys.interview.android.filescanner.adapter.ResultLayoutAdapter;
+import macys.interview.android.filescanner.model.ScanResultWrapper;
 
 /**
  * Created by Yee on 3/22/18.
@@ -44,7 +45,9 @@ public class ScanFragment extends Fragment {
     }
 
     public void setupAdapter() {
-        mLayoutAdapter = new ResultLayoutAdapter();
-        mResultLayoutList.setAdapter(mLayoutAdapter);
+        if (mLayoutAdapter == null && !ScanResultWrapper.getInstance().getScanResult().getScanFileList().isEmpty()) {
+            mLayoutAdapter = new ResultLayoutAdapter();
+            mResultLayoutList.setAdapter(mLayoutAdapter);
+        }
     }
 }
